@@ -1,0 +1,15 @@
+/workspaces/Karat/MyApp/bin/Debug/net8.0/MyApp
+/workspaces/Karat/MyApp/bin/Debug/net8.0/MyApp.deps.json
+/workspaces/Karat/MyApp/bin/Debug/net8.0/MyApp.runtimeconfig.json
+/workspaces/Karat/MyApp/bin/Debug/net8.0/MyApp.dll
+/workspaces/Karat/MyApp/bin/Debug/net8.0/MyApp.pdb
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.AssemblyInfoInputs.cache
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.AssemblyInfo.cs
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.csproj.CoreCompileInputs.cache
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.sourcelink.json
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.dll
+/workspaces/Karat/MyApp/obj/Debug/net8.0/refint/MyApp.dll
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.pdb
+/workspaces/Karat/MyApp/obj/Debug/net8.0/MyApp.genruntimeconfig.cache
+/workspaces/Karat/MyApp/obj/Debug/net8.0/ref/MyApp.dll
