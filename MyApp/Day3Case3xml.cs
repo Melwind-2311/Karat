@@ -5,17 +5,13 @@ public class Program
 {
    public static void Main()
    {
-       // Simulated XML content (you can save this to a file)
-       string xmlContent = @"
-<settings>
-<setting key='maxUsers'>100</setting>
-<setting key='isEnabled'>true</setting>
-<setting key='launchDate'>2025-07-01</setting>
-</settings>";
-       // Save XML to temp file (simulate loading from legacy config)
+       string xmlContent = @"<settings>
+                           <setting key='maxUsers'>100</setting>
+                           <setting key='isEnabled'>true</setting>
+                           <setting key='launchDate'>2025-07-01</setting>
+                           </settings>";
        string tempPath = "config.xml";
        File.WriteAllText(tempPath, xmlContent);
-       // Use the ConfigReader
        ConfigReader config = new ConfigReader(tempPath);
        int maxUsers = config.GetValue("maxUsers", 10);
        bool isEnabled = config.GetValue("isEnabled", false);
@@ -46,7 +42,6 @@ public class ConfigReader
                return (T)(object)bool.Parse(val);
            if (typeof(T) == typeof(DateTime))
                return (T)(object)DateTime.Parse(val);
-           // Optional: fallback using Convert
            return (T)Convert.ChangeType(val, typeof(T));
        }
        catch
