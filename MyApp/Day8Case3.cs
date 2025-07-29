@@ -29,7 +29,7 @@ Name = name;
 MembershipStatus = membershipStatus;
 }
 
-public override string Tostring ()
+public override string ToString ()
 {
 return $"Member ID: {MemberId}, Name: {Name}, Membership Status: {MembershipStatus}";
 }
@@ -47,6 +47,7 @@ public Dictionary<int, List<Workout>> workoutRegister = new Dictionary<int, List
 public Membership()
 {
 members = new List<Member>();
+workoutRegister = new Dictionary<int, List<Workout>>();
 }
 
 public void AddMember(Member member)
@@ -56,7 +57,7 @@ members.Add(member);
 
 public void UpdateMembership(int memberId, MembershipStatus membershipStatus)
 {
-Member memberToUpdate = members.Find(member => member.MemberId == memberId) ?? throw new ArgumentException();
+Member memberToUpdate = members.Find(member => member.MemberId == memberId);
 if (memberToUpdate != null)
 {
 memberToUpdate.MembershipStatus = membershipStatus;
@@ -76,6 +77,31 @@ return new Dictionary<string, double>
 { "conversion_rate", conversionRate }
 };
 }
+public void AddWorkout(int memberId, Workout workout)
+   {
+       if (!members.Any(m => m.MemberId == memberId))
+           return;
+       if (!workoutRegister.ContainsKey(memberId))
+       {
+           workoutRegister[memberId] = new List<Workout>();
+       }
+       workoutRegister[memberId].Add(workout);
+   }
+   public Dictionary<int, double> GetAverageWorkoutDurations()
+   {
+       var result = new Dictionary<int, double>();
+       foreach (var kvp in workoutRegister)
+       {
+           int memberId = kvp.Key;
+           List<Workout> workouts = kvp.Value;
+           if (workouts.Count > 0)
+           {
+               double avg = workouts.Average(w => w.GetDuration());
+               result[memberId] = avg;
+           }
+       }
+       return result;
+   }
 }
 
 public class Workout
@@ -102,33 +128,6 @@ public int GetDuration()
 {
 return EndTime - StartTime;
 }
-}
-
- public void AddWorkout(int memberId, Workout workout)
-   {
-       if (!members.Any(m => m.MemberId == memberId))
-           return;
-       if (!workoutRegister.ContainsKey(memberId))
-       {
-           workoutRegister[memberId] = new List<Workout>();
-       }
-       workoutRegister[memberId].Add(workout);
-   }
-   public Dictionary<int, double> GetAverageWorkoutDurations()
-   {
-       var result = new Dictionary<int, double>();
-       foreach (var kvp in workoutRegister)
-       {
-           int memberId = kvp.Key;
-           List<Workout> workouts = kvp.Value;
-           if (workouts.Count > 0)
-           {
-               double avg = workouts.Average(w => w.GetDuration());
-               result[memberId] = avg;
-           }
-       }
-       return result;
-   }
 }
 public class TestSuite
 {
