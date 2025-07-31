@@ -1,3 +1,4 @@
+// singleton difference in day 6 and day 9 lock on access and only locks if instance == null day 6 is better performing for higherconcurrency
 using System; 
 using System.Threading.Tasks; 
 public sealed class ProblematicSingleton 
