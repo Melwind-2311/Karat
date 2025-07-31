@@ -13,6 +13,12 @@ public class ProblematicCounter
             counter++;
         }
     } 
+    /* or
+    public void Increment()
+    {
+        Interlocked.Increment(ref counter);
+    }*/
+    
     public int GetCounter() 
     {
         return counter; 
