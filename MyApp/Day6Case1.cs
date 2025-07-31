@@ -7,14 +7,17 @@ public class Logger
  
     public static Logger GetInstance() 
     {
-        lock (lockObj)
+        if (instance == null)
         {
-            if (instance == null) 
-            { 
-                instance = new Logger(); 
-            } 
-            return instance;    
+            lock (lockObj)
+            {
+                if (instance == null) 
+                { 
+                    instance = new Logger(); 
+                }
+            }
         }
+        return instance;    
     }
     public void Log(string message)
     {
