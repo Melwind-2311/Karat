@@ -16,8 +16,8 @@ public class Program
         {
             uniqueNumbers.Add(number);
         }
-        Console.WriteLine("Unique count: " + uniqueNumbers.Count);
-        //or
+        Console.WriteLine("Unique count: " + uniqueNumbers.Count);/*--just Count not Count()
+        or--*/
         HashSet<int> uniqueNumbers = new HashSet<int>(numbers);
         Console.WriteLine(string.Join(", ",uniqueNumbers));
     }
