@@ -7,6 +7,7 @@ public class DataManager
     { 
         _data = new Lazy<List<string>>(LoadData);
     }
+    public list<string> Data => _data.Value;
  
     private List<string> LoadData() 
     { 
