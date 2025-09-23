@@ -16,7 +16,10 @@ public sealed class ProblematicSingleton
             lock (padlock)
             {
                 if (instance == null) 
-            { 
+            {
+                // Task.Delay(100).Wait(); ouput will be different because of waiting, different order
+
+                instance = new ProblematicSingleton(); 
                 instance = new ProblematicSingleton(); 
             } 
             return instance;
